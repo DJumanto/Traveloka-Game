@@ -24,8 +24,6 @@ const cloud = new Image();
 cloud.src = "img/Cloud_4.png";
 const kite = new Image();
 kite.src= "img/Kite.png";
-const explode = new Audio('Explode.mp3');
-const bgm = new Audio('BGM.mp3');
 
 //player and object classes
 class Game{
@@ -269,7 +267,6 @@ function animate(timeStamp){
         lastTime = timeStamp;
         Backgrounds.forEach(objects => {
         objects.update();
-        bgm.play();
         });
         let reqAnim = true;
         if(!gameOver){
@@ -287,7 +284,6 @@ function animate(timeStamp){
                 console.log(enemy._y)
                 console.log("HITTTT!!");
                 reqAnim =  false;
-                explode.play();
                 return;
             }
         });
@@ -312,7 +308,12 @@ canvas.addEventListener('touchmove', (e)=>{
 });
 canvas.addEventListener('touchend', ()=>{
     console.log('end');   
-})
+});
+canvas.addEventListener('pointermove', (e)=>{
+    let val = e.clientY;
+    console.log(val);
+    player.move(val);
+});
 restart_bt.addEventListener('click', function(){
     losepanel.style.display='none';
     lastTime = 1;

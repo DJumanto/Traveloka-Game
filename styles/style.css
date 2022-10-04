@@ -39,6 +39,9 @@ body{
     justify-content: center;
     align-items: center;
     margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
 }
 
 /* .button::h{
@@ -51,4 +54,8 @@ body{
     justify-content: center;
     max-width: 400px;
     max-height: 250px;
+}
+
+.button img{
+    display: flex;
 }

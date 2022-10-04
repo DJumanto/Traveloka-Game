@@ -24,8 +24,6 @@ const cloud = new Image();
 cloud.src = "img/Cloud_4.png";
 const kite = new Image();
 kite.src= "img/Kite.png";
-const explode = new Audio('Explode.mp3');
-const bgm = new Audio('BGM.mp3');
 
 //player and object classes
 class Game{
@@ -276,7 +274,6 @@ function animate(timeStamp){
             player.update();
             game.update(deltaTime);
             game.draw();
-            bgm.play();
             score.text = "SCORE: " + score.scoresum;
             score.update(deltaTime);
             game.enemies.forEach(enemy =>{
@@ -287,7 +284,6 @@ function animate(timeStamp){
                 console.log(enemy._y)
                 console.log("HITTTT!!");
                 reqAnim =  false;
-                explode.play();
                 return;
             }
         });
@@ -303,11 +299,16 @@ function animate(timeStamp){
 }
 
 animate(0);
-canvas.addEventListener('touchstart', ()=>{
+canvas.addEventListener('touchstart' , ()=>{
     console.log('touchstart');
 });
 canvas.addEventListener('touchmove', (e)=>{
     let val = e.changedTouches[0].clientY;
+    player.move(val);
+});
+canvas.addEventListener('pointermove', (e)=>{
+    let val = e.clientY;
+    console.log(val);
     player.move(val);
 });
 canvas.addEventListener('touchend', ()=>{
