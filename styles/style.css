@@ -3,7 +3,7 @@ html{
 }
 body{
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-image: -webkit-linear-gradient(#6BCAE2,#003F7D);
     margin: 0;
     padding: 0;
