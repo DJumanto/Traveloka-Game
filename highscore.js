@@ -1,4 +1,5 @@
 window.addEventListener('load', async function() {
+    
     try {
     const resp = await fetch("https://ets-pemrograman-web-f.cyclic.app/scores/score", {
         method: "GET",
@@ -26,6 +27,7 @@ window.addEventListener('load', async function() {
                 highscoreBox.appendChild(highscoreRow);
             }
         }
+        
     }
     catch(error) {
         console.error("An error occurred:", error);
